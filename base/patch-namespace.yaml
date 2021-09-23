@@ -1,0 +1,8 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: ingress-nginx
+  annotations:
+    linkerd.io/inject: enabled
+  labels:
+    system: monitor

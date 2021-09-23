@@ -1,0 +1,21 @@
+resources:
+- nginx.yaml
+- metrics-service.yaml
+
+patchesStrategicMerge:
+- patch-priority-class.yaml
+- patch-namespace.yaml
+- patch-ingress-controller.yaml
+- patch-jobs.yaml
+- annotations-ingress-controller.yaml
+
+patches:
+- path: patch-nginx.json
+  target:
+    group: apps
+    version: v1
+    kind: Deployment
+    name: ingress-nginx-controller
+    namespace: ingress-nginx
+
+namespace: nginx
